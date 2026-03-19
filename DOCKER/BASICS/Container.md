@@ -1,14 +1,26 @@
-Based on the video transcript, here is a brief explanation of the core topics covered:
+
+* **Evolution from Physical Servers to VMs:** The video explains that physical servers often waste resources because applications rarely use 100% of the CPU and RAM. Virtual Machines (VMs) improved this by using a hypervisor to create multiple isolated logical servers on one physical machine, though they still incur overhead by requiring a full operating system for each instance 
+* **The Container Advantage:** Containers are presented as an advancement over VMs. Unlike VMs, containers do not include a full operating system; they share the host’s kernel and only package the application, its libraries, and system dependencies. This makes them significantly more lightweight (often MBs vs GBs) and easier to ship across environments
+* ### 2. Containers
+**Containers** are an evolution of VMs designed to be even more efficient.
+* **How they work:** Instead of each container having its own full OS, they all **share the host's Operating System kernel**. 
+* **Benefits:** Because they only package the application and its specific requirements (libraries/dependencies), they are incredibly lightweight, start instantly, and are easy to move between different environments.
+    * **Deployment Models:** Containers can be run directly on physical servers (Model 1) or on top of virtual machines (Model 2). Most modern organizations prefer Model 2 (e.g., running Docker on AWS EC2) because it reduces the maintenance overhead associated with managing physical hardware
+* **Docker Life Cycle:** The instructor outlines the standard Docker workflow: writing a **Docker file** (a script of instructions), using the `docker build` command to create a **Docker image**, and finally using `docker run` to turn that image into a running **container** 
+* **Introduction to Buildah:** While Docker is popular, the video introduces **Buildah** as an alternative to solve issues like "Single Point of Failure" (where all containers stop if the Docker engine fails). Buildah allows for creating images using shell scripts instead of Dockerfiles and works efficiently with tools like Podman and Skopeo 
+
+
+
+
+
+
 
 ### 1. Virtualization & Virtual Machines (VMs)
 Think of a **Virtual Machine** as a "computer within a computer." 
 * **The Problem:** In the past, companies ran one application per physical server, wasting a lot of hardware power.
 * **The Solution:** A **Hypervisor** allows you to split one physical server into multiple VMs. Each VM has its own full Operating System (OS), making them very secure and isolated, but also "heavy" (taking up GBs of space).
 
-### 2. Containers
-**Containers** are an evolution of VMs designed to be even more efficient.
-* **How they work:** Instead of each container having its own full OS, they all **share the host's Operating System kernel**. 
-* **Benefits:** Because they only package the application and its specific requirements (libraries/dependencies), they are incredibly lightweight, start instantly, and are easy to move between different environments.
+
 
 ### 3. Docker
 **Docker** is the most popular platform used to create, deploy, and manage containers. It simplified the process through a standard "Life Cycle":
@@ -23,4 +35,4 @@ Think of a **Virtual Machine** as a "computer within a computer."
 
 ---
 
-**Would you like me to create a comparison table between Virtual Machines and Containers to see their differences side-by-side?**
+
